@@ -1,0 +1,86 @@
+//
+//  PrefixHeader.pch
+//  VideoTest
+//
+//  Created by YNZMK on 2019/4/13.
+//  Copyright © 2019 YNZMK. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#if !(defined(__LP64__) && __LP64__)
+#define integerValue longLongValue
+#define intValue longLongValue
+#define NSInteger long
+#endif
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreTelephony/CTCellularData.h>
+#import "HXBaseViewController.h"
+#import "HXUIDefines.h"
+
+#import <RTRootNavigationController.h>
+#import <UIViewController+RTRootNavigationController.h>
+
+#import "UIButton+Factory.h"
+#import "UIColor+Factory.h"
+#import "UIImage+Factory.h"
+#import "UILabel+Factory.h"
+#import "UIImageView+Factory.h"
+#import "UIKitMacros.h"
+#import <Masonry.h>
+#import <NSObject+YYModel.h>
+#import "UIDevice+Helpers.h"
+
+
+/** Weak--Strong**/
+#define Weak(object)                __weak __typeof(&*object)weak_##object = object;
+#define WeakSelf(weakSelf)                __weak __typeof(&*self)weakSelf = self;
+#define StrongSelf(strongSelf, weakSelf)  __strong __typeof(&*weakSelf)strongSelf = weakSelf;
+
+#define WEAKSELF   WeakSelf(weakSelf)
+#define STRONGSELF StrongSelf(strongSelf, weakSelf)
+
+#define HTSTR(...)          [NSString stringWithFormat:__VA_ARGS__]
+
+#define URL(url) [NSURL URLWithString:[url stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]
+#define URL2(host,path) [NSURL URLWithString:[[NSString stringWithFormat:@"%@%@",host,path] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]
+#define HXUserDefaults     [NSUserDefaults standardUserDefaults]
+
+/*
+ ************************ dic value********************
+ */
+#define HXDicGetSafeInteger(dic,key) ((!dic||![dic isKindOfClass:[NSDictionary class]]||![[dic objectForKey:key] isKindOfClass:[NSNumber class]])?0:[[dic objectForKey:key] integerValue]);
+
+#define HXDicGetSafeFloat(dic,key) ((!dic||![dic isKindOfClass:[NSDictionary class]]||![[dic objectForKey:key] isKindOfClass:[NSNumber class]])?0:[[dic objectForKey:key] floatValue]);
+
+#define HXDicGetSafeString(dic,key) ((!dic||![dic isKindOfClass:[NSDictionary class]]||![[dic objectForKey:key] isKindOfClass:[NSString class]])?@"":[dic objectForKey:key]);
+
+#define HXDicGetSafeArray(dic,key) ((!dic||![dic isKindOfClass:[NSDictionary class]]||![[dic objectForKey:key] isKindOfClass:[NSArray class]])?@[]:[dic objectForKey:key]);
+
+#define HXDicGetSafeDic(dic,key) ((!dic||![dic isKindOfClass:[NSDictionary class]]||![[dic objectForKey:key] isKindOfClass:[NSDictionary class]])?@{}:[dic objectForKey:key]);
+
+
+#if PrintLog || DEBUG
+
+#define NSLog(format, ...)    do {                                            \
+(NSLog)([NSString stringWithFormat:@"<%@ : %d> - [%@]",[[NSString stringWithUTF8String:__FILE__] lastPathComponent],__LINE__,[NSString stringWithUTF8String:__func__]],""); \
+(NSLog)((format), ##__VA_ARGS__);                                            \
+} while (0)
+
+#else
+
+#define NSLog(format, ... )
+
+#endif
+
+
+
+#endif
+
+#endif
+
