@@ -1,1 +1,0 @@
-../../../TYAlertController_lly/TYAlertControllerDemo/TYAlertController/TYAlertController.h
