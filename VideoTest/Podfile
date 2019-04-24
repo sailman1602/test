@@ -9,7 +9,7 @@ target 'VideoTest' do
 
 ###    UI    ###
 
-#pod 'mobile_ios_HXEngine', ‘1.3.5'
+pod 'mobile_ios_HXEngine', ‘1.3.5'
 
 
 

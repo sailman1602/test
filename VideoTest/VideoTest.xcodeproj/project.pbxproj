@@ -253,6 +253,7 @@
 				290AA8AA226203DF000C1C35 /* Sources */,
 				290AA8AB226203DF000C1C35 /* Frameworks */,
 				290AA8AC226203DF000C1C35 /* Resources */,
+				2E311BBD206DF782E024BD32 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -371,6 +372,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2E311BBD206DF782E024BD32 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VideoTest/Pods-VideoTest-resources.sh",
+				"${PODS_ROOT}/AXWebViewController_lly/AXWebViewController/AXWebViewController/AXWebViewController.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AXWebViewController.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoTest/Pods-VideoTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		608B812B247B0CB56BC96F2B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
